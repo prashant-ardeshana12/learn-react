@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import './Style.css';
+import './style.scss';
 import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
