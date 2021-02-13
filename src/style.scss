@@ -1,0 +1,828 @@
+/* ----------------------------------------------------------------------------------------
+* Author        : Qrolic
+* Template Name : Template
+* File          : Main CSS file
+* Version       : 1.0
+* ---------------------------------------------------------------------------------------- */
+
+
+/* INDEX
+----------------------------------------------------------------------------------------
+01. General css
+02. banner css
+-------------------------------------------------------------------------------------- */
+@import '_base.scss';
+@import '_variable.scss';
+
+/************************************/
+/***** 	   01. General css		 ****/
+/************************************/
+html{
+    overflow-x: hidden;
+}
+body {
+    font-size: 18px;
+    margin: 0px;
+    padding: 0px;
+    font-family: $primary-font;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+a:hover,
+a {
+    text-decoration: none;
+    outline: 0;
+}
+
+a:focus {
+    text-decoration: none;
+    outline: 0;
+}
+
+::-moz-selection {
+    background: #05cbfc;
+    color: #fff;
+}
+
+::selection {
+    background: #05cbfc;
+    color: #fff;
+}
+*,::after,::before{
+    box-sizing: border-box;
+}
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+button:focus,
+input:focus,
+img:focus,
+.slick-slide:focus,
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+
+/************************************/
+/***** 	   02. header css		 ****/
+/************************************/
+
+.header{
+    background-color: $primary;
+    color: $white;
+    border-bottom: 1px solid #3d588f;
+    width: 100%;
+    position: relative;
+    z-index: 999;
+    top: 0;
+    &__inner{
+        @include space-between;
+        @include align-items(center);
+        padding: 16px 32px;
+        @include max-991{
+            padding: 10px 15px;
+        }
+    }
+    &__logo{
+        a {
+            color: $bg;
+            font-family: $secondary-font;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        a>img{
+            width: 200px;
+        }
+    }
+    .toggle-menu{
+        display: none;
+        cursor: pointer;
+        @include max-991{
+            display: block;
+        }
+        i{
+            color: $bg;
+            font-size: 18px;
+        }
+    }
+    &__menu{
+        &-inner{
+            @include flex;
+        }
+        @include max-991{
+            display: none;
+        }
+        &-btn{
+            a{
+                padding: 8px 16px;
+                font-weight: 500;
+                @include border-radius(50px);
+            }
+        }
+        ul{
+            @include center;
+            
+            li{
+                padding: 8px 16px;
+            }
+            a{
+                color: $bg;
+                text-transform: capitalize;
+                font-size: 16px;
+                line-height: 24px;
+                transition: all 500ms;
+                font-weight: 500;
+                &:hover{
+                    color: $secondary;
+                }
+            }
+        }
+    }
+}
+
+.close-sidebar {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    display: none; 
+}
+  
+.close-sidebar.active {
+    display: block; 
+}
+.sidebar.active {
+    @include transform (translateX(0px)); 
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: $primary;
+    border-right: 2px groove $secondary;
+    z-index: 999;
+    display: none;
+    @include transform (translateX(-300px));
+    @include transition (all 500ms);
+    @include max-991{
+        display: block;
+    }
+    
+    &__inner{
+        padding: 30px;
+        
+    }
+    &__logo{
+        // width: 200px;
+        @include center;
+        a{
+            color: $white;
+            font-family: $secondary-font;
+            text-transform: uppercase;
+        }
+    }
+    &__menu{
+        padding: 20px 0;
+        padding-top: 30px;
+        @include flex;
+        ul{
+            li{
+                margin-bottom: 10px;
+                a{
+                    font-size: 15px;
+                    color: $white;
+                    padding: 0px 0px;
+                    @include transition (all 500ms);
+                    &:hover{
+                        color: $secondary; 
+                    }
+                }
+            }
+        }
+    }
+}
+
+/************************************/
+/***** 	   03. hero css		 ****/
+/************************************/
+.hero{
+    // position: relative;
+    background: $primary;
+    color: $white;
+    padding: 80px 0 160px;
+    @include max-991{
+        padding: 40px 0;
+    }
+    &-right{
+        @include max-991{
+            @include center;
+            img{
+                width: 60%;
+            }
+        }
+    }
+    &-title{
+        padding-bottom: 16px;
+        h1{
+            color: $white;
+            font-size: 48px;
+            line-height: 56px;
+            font-weight: 700;
+            @include max-991{
+                font-size: 25px;
+                line-height: 30px;
+            }
+        }
+    }
+    &-text{
+        p{
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            @include max-991{
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+    }
+    &-btn{
+        &-box{
+            @include flex;
+            padding-top: 80px;
+            @include max-991{
+                display: block;
+                padding-top: 30px;
+            }
+        }
+        &.btn{
+            margin-right: 30px;
+            @include max-991{
+                margin: 0;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+/************************************/
+/***** 	   04. services css		 ****/
+/************************************/
+.service{
+    background-color: $bg;
+    @include padding-y;
+
+    &-box{
+        padding-top: 80px;
+        @include max-991{
+            padding: 30px 0;
+        }
+        &-image{
+            width: 100%;
+            height: 100%;
+            @include center;
+        }
+        &-inner{
+            padding: 40px 0 72px;
+            @include max-991{
+                padding: 20px 0 0;
+            }
+        }
+        &-title{
+            h3{
+                font-size: 32px;
+                line-height: 48px;
+                color: $primary;
+                font-weight: 700;
+                @include max-991{
+                    font-size: 20px;
+                    line-height: 25px;
+                }
+            }
+        }
+        &-content{
+            @include flex;
+            padding-top: 40px;
+            @include max-991{
+                padding-top: 30px;
+            }
+            &-number{
+                padding-right: 16px;
+                span{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background-color: $white;
+                    color: $black;
+                    font-size: 18px;
+                    font-weight: 700;
+                    @include center;
+                    color: $primary;
+                }
+            }
+            &-title{
+                padding-bottom: 16px;
+                h5{
+                    font-size: 18px;
+                    line-height: 24px;
+                    font-weight: 700;
+                    color: #18387A;
+                }
+                @include max-991{
+                    padding-bottom: 10px;
+                    h5{
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                }
+            }
+            &-text{
+                p{
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #18387A;
+                    font-weight: 400;
+                    @include max-991{
+                        br{
+                            display: none;
+                        }
+                        font-size: 12px;
+                        line-height: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/************************************/
+/***** 	   05. technologies css		 ****/
+/************************************/
+.technologies{
+    background: linear-gradient(135deg, #36A5FF 0%, #0072CE 100%);
+    @include padding-y;
+    z-index: 5;
+    position: relative;
+    &-content{
+        padding-left: 30px;
+        @include max-991{
+            padding: 0;
+            padding-bottom: 30px;
+        }
+    }
+    .title{
+        h2{
+            color: $white;
+        }
+    }
+    .sub-title{
+        p{
+            color: $white;
+        }
+    }
+    &-images{
+        @include center;
+        padding-top: 40px;
+        height: 100%;
+        width: 100%;
+        @include max-991{
+            padding-top: 20px;
+        }
+        &-box{
+            padding-right: 42px;
+            img{
+                width: 100px;
+            }
+            @include max-991{
+                padding-right: 5px;
+            }
+        }
+    }
+}
+
+/************************************/
+/***** 	   06. about css		 ****/
+/************************************/
+.about{
+    @include padding-y;
+    z-index: 1;
+    position: relative;
+    @include max-991{
+        padding-bottom: 40px;
+    }
+    .title{
+        text-align: left;
+    }
+    .sub-title{
+        text-align: left;
+        p{
+            line-height: 22px;
+        }
+    }
+    &-btn{
+        padding-top: 40px;
+        a{
+            @include border-radius(100px);
+            background-color: $white;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+        }
+    }
+    &-counter{
+        height: 100%;
+        @include space-between-center;
+        @include max-991{
+            padding-top: 40px;
+        }
+        &-box{
+            text-align: center;
+
+            h1{
+                font-size: 56px;
+                font-weight: 400;
+                line-height: 64px;
+                color: $primary;
+                @include max-991{
+                    font-size: 28px;
+                    line-height: 33px;
+                }
+            }
+            p{
+                font-size: 16px;
+                line-height: 20px;
+                color: $primary;
+                @include max-991{
+                    font-size: 12px;
+                    line-height: 18px;
+                }
+            }
+            a{
+                text-decoration: underline;
+                color: $primary;
+            }
+        }
+    }
+    &-image{
+        // @include flex;
+        position: relative;
+        
+        &-top{
+            img{
+                width: 360px;
+            }
+            position: absolute;
+            top:-650px;
+            right: 300px;
+            // left: 0;
+            // margin-top: -280px;
+            @include max-1199{
+                top: -680px;
+                right: 100px;
+            }
+            @include max-991{
+                top: -390px;
+                right: 20px;
+                img{
+                    width: 90px;
+                }
+            }
+        }
+        &-bottom{
+            img{
+                width: 520px;
+            }
+            position: absolute;
+            right: -150px;
+            top: -170px;
+            // margin: 0;
+            @include max-991{
+                top: 0px;
+                right: -20px;
+                img{
+                    width: 100px;
+                }
+            }
+        }
+    }
+}
+
+/************************************/
+/***** 	   07. testimonial css		 ****/
+/************************************/
+.testimonial{
+    background-color: #f2f6ff;
+    @include padding-y;
+    z-index: 4;
+    position: relative;
+
+    &-slider{
+        padding-top: 72px;
+        @include max-991{
+            padding-top: 40px;
+        }
+        &-inner{
+            background-color: $white;
+            @include border-radius (40px);
+            padding: 32px;
+            box-shadow: 0px 8px 40px rgba(0, 114, 206, 0.2);
+            // box-shadow: 0px 10px 30px rgba(24, 57, 122, 0.236);
+            @include max-991{
+                padding: 20px;
+            }
+        }
+
+        &-text{
+            // text-align: center;
+            p{
+                font-size: 32px;
+                line-height: 48px;
+                color: $primary;
+                @include max-991{
+                    font-size: 15px;
+                    line-height: 22px;
+                    br{
+                        display: none;
+                    }
+                }
+            }
+        }
+        &-profile{
+            @include flex;
+            padding-top: 16px;
+        }
+        &-img{
+            img{
+                @include border-radius(50px);
+                width: 60px;
+                @include max-991{
+                    width: 40px;
+                }
+            }
+        }
+        &-right{
+            padding-left: 15px;
+        }
+        &-name{
+            p{
+                font-size: 15px;
+                line-height: 25px;
+                font-weight: 600;
+                color: $primary;
+                @include max-991{
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+            }
+        }
+        &-job{
+            p{
+                font-size: 14px;
+                line-height: 22px;
+                font-weight: 400;
+                color: $primary;
+                @include max-991{
+                    font-size: 13px;
+                    line-height: 18px;
+                }
+            }
+        }
+    }
+}
+
+/************************************/
+/***** 	   08. map css		 ****/
+/************************************/
+.map{
+    padding-top: 160px;
+    margin-bottom: -90px;
+    @include max-991{
+        padding-top: 40px;
+        margin-bottom: -25px;
+    }
+
+    &-img{
+        padding-top: 40px;
+    }
+    .title{
+        h2{
+            color: $black;
+        }
+    }
+    .sub-title{
+        p{
+            color: $black;
+        }
+    }
+}
+
+/************************************/
+/***** 	   09. form css		 ****/
+/************************************/
+.form{
+    background: linear-gradient(180deg, #193B80 0%, #04173D 100%);
+    @include padding-y;
+    color: $white;
+    z-index: 2;
+    position: relative;
+
+    .title{
+        h2{
+            color: $white;
+        }
+    }
+    .sub-title{
+        p{
+            color: $white;
+        }
+    }
+    .contact-info{
+        @include center;
+        ul{
+            @include flex;
+            padding-top: 16px;
+            @include max-991{
+                display: block;
+            }
+        }
+        li{
+            padding-right: 50px;
+            @include max-991{
+                padding-right: 0;
+                padding-bottom: 5px;
+            }
+            &:last-child{
+                padding-right: 0;
+            }
+        }
+        i{
+            padding-right: 10px;
+        }
+        a{
+            color: $white;
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 300;
+            border-bottom: 1px solid white;
+            // text-decoration: underline;
+            @include max-991{
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+    }
+    &-main{
+        padding-top: 72px;
+        @include max-991{
+            padding-top: 40px;
+        }
+    }
+    &-input{
+        padding-bottom: 16px;
+
+        input, textarea{
+            font-weight: 400;
+            padding: 16px 24px;
+            border-radius: 8px;
+            color: $white;
+            border: none;
+            width: 100%;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            @include max-991{
+                padding: 10px 15px;
+            }
+
+            &::placeholder{
+                color: $white;
+                opacity: 0.5;
+            }
+        }
+        textarea{
+            resize: none;
+        }
+    }
+    &-btn{
+        margin-top: 16px;
+
+        &.btn{
+            width: 100%;
+            border-color: rgba(255, 255, 255, 0.5);
+            background-color: transparent;
+            color: $white;
+            @include border-radius(50px);
+            &:hover{
+                background-color: $secondary;
+                border: 2px solid transparent;
+            }
+        }
+    }
+}
+
+/************************************/
+/***** 	   10. footer css		 ****/
+/************************************/
+.footer{
+    background-color: $dark-bg;
+    box-shadow: 0px -1px 0px rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #3a4b6d;
+    padding: 40px 0;
+
+    &__inner{
+        @include space-between-center;
+        @include max-991{
+            display: block;
+        }
+    }
+    &-left{
+        text-align: left;
+        @include max-991{
+            text-align: center;
+        }
+    }
+    &-logo{
+        a{
+            color: $white;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+        }
+    }
+    &-copyright{
+        padding-top: 16px;
+        @include max-991{
+            padding-top: 0;
+        }
+        p{
+            padding-top: 5px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    }
+    &-center{
+        text-align: center;
+        @include max-991{
+            padding: 30px 0;
+        }
+    }
+    &-menu, &-social{
+        ul{
+            @include flex;
+            @include max-991{
+                @include flex-wrap (wrap);
+                @include justify-content(center);
+            }
+        }
+        li{
+            padding: 0 5px;
+        }
+        a{
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 28px;
+            transition: all 500ms;
+            &:hover{
+                color: $secondary;
+            }
+            @include max-991{
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+    }
+    &-social{
+        li{
+            padding: 0 8px;
+        }
+        i{
+            font-size: 24px;
+        }
+    }
+}

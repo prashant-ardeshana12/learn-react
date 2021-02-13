@@ -1,0 +1,273 @@
+// font
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$primary-font: 'Inter', sans-serif;
+$secondary-font: 'Inter', sans-serif;
+
+
+// color
+$white:#ffffff;
+$border:#d3d3d3;
+$black:#000000;
+
+$primary:#193B80;
+$secondary:#0072CE;
+$dark-bg:#04173D;
+$bg:#E5EEFF;
+
+
+@mixin padding-x {
+    padding: 0 60px;
+    @include max-991{
+        padding: 0 30px;
+    }
+}
+@mixin padding-y {
+    padding: 160px 0;
+    @include max-991{
+        padding: 40px 0;
+    }
+}
+@mixin padding-xy {
+    padding: 40px 60px;
+    @include max-991{
+        padding: 20px 30px;
+    }
+}
+
+@mixin common-btn {
+    text-decoration: none;
+    background-color: rgb(95, 95, 243);
+    text-transform: uppercase;
+    font-size: 15px;
+    color: white;
+    @include center;
+}
+@mixin common-input {
+    padding: 8px 10px;
+    border: none;
+    background-color: white;
+    color: #000000;
+    &::placeholder{
+        color: #d3d3d3;
+    }
+}
+
+// mixin classes
+
+@mixin center {
+    @include flex;
+    @include align-items(center);
+    @include justify-content(center);
+}
+@mixin space-between {
+    @include flex;
+    @include justify-content(space-between);
+}
+@mixin space-between-center {
+    @include flex;
+    @include align-items(center);
+    @include justify-content(space-between);
+}
+@mixin bg-cover-common {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@mixin absolute-common {
+    position: absolute;
+    content: '';
+}
+@mixin flex {
+    display:-webkit-flex;
+    display:-webkit-box;
+    display:-moz-flex;
+    display:-moz-box;
+    display:-ms-flexbox;
+    display:flex;
+}
+@mixin  justify-content($value) {
+    -webkit-justify-content: ($value);
+    -moz-justify-content: ($value);
+    -ms-justify-content: ($value);
+    -o-justify-content: ($value);
+    justify-content: ($value);
+}
+@mixin align-items($value) {
+    -webkit-align-items: ($value);
+    -moz-align-items: ($value);
+    -ms-align-items: ($value);
+    -o-align-items: ($value);
+    align-items: ($value);
+}
+@mixin flex-direction($value) {
+    -webkit-flex-direction: ($value);
+    -moz-flex-direction: ($value);
+    -ms-flex-direction: ($value);
+    -o-flex-direction: ($value);
+    flex-direction: ($value);
+}
+@mixin flex-wrap($value) {
+    -webkit-flex-wrap: ($value);
+    -moz-flex-wrap: ($value);
+    -ms-flex-wrap: ($value);
+    -o-flex-wrap: ($value);
+    flex-wrap: ($value);
+}
+@mixin flex-grow($value) {
+    -webkit-flex-grow: ($value);
+    -moz-flex-grow: ($value);
+    -ms-flex-grow: ($value);
+    -o-flex-grow: ($value);
+    flex-grow: ($value);
+}
+@mixin flex-shrink($value) {
+    -webkit-flex-shrink: ($value);
+    -moz-flex-shrink: ($value);
+    -ms-flex-shrink: ($value);
+    -o-flex-shrink: ($value);
+    flex-shrink: ($value);
+}
+@mixin flex-basis($value) {
+    -webkit-flex-basis: ($value);
+    -moz-flex-basis: ($value);
+    -ms-flex-basis: ($value);
+    -o-flex-basis: ($value);
+    flex-basis: ($value);
+}
+@mixin flex-flow($value) {
+    -webkit-flex-flow: ($value);
+    -moz-flex-flow: ($value);
+    -ms-flex-flow: ($value);
+    -o-flex-flow: ($value);
+    flex-flow: ($value);
+}
+@mixin border-radius($value) {
+    -webkit-border-radius:($value);
+    -moz-border-radius:($value);
+    -ms-border-radius:($value);
+    -o-border-radius:($value);
+    border-radius:($value);
+}
+@mixin transition($value) {
+    -webkit-transition: ($value);
+    -moz-transition: ($value);
+    -ms-transition: ($value);
+    -o-transition: ($value);
+    transition: ($value);
+}
+@mixin transform($value) {
+    -webkit-transform: ($value);
+    -moz-transform: ($value);
+    -ms-transform: ($value);
+    -o-transform: ($value);
+    transform: ($value);
+}
+
+@mixin box-shadow($left, $top, $radius, $spread, $color) {
+    -webkit-box-shadow: ($left $top $radius $spread $color);
+	-moz-box-shadow: ($left $top $radius $spread $color);
+	-ms-box-shadow: ($left $top $radius $spread $color);
+	-o-box-shadow: ($left $top $radius $spread $color);
+	box-shadow: ($left $top $radius $spread $color);
+}
+
+@mixin custom-border-radius($topleft, $topright, $bottomright, $bottomleft) {
+	-webkit-border-top-left-radius: ($topleft);
+	-webkit-border-top-right-radius: ($topright);
+	-webkit-border-bottom-right-radius: ($bottomright);
+    -webkit-border-bottom-left-radius: ($bottomleft);
+    
+	-moz-border-radius-topleft: ($topleft);
+	-moz-border-radius-topright: ($topright);
+	-moz-border-radius-bottomright: ($bottomright);
+    -moz-border-radius-bottomleft: ($bottomleft);
+    
+	-ms-border-radius-topleft: ($topleft);
+	-ms-border-radius-topright: ($topright);
+	-ms-border-radius-bottomright: ($bottomright);
+    -ms-border-radius-bottomleft: ($bottomleft);
+    
+	-o-border-radius-topleft: ($topleft);
+	-o-border-radius-topright: ($topright);
+	-o-border-radius-bottomright: ($bottomright);
+    -o-border-radius-bottomleft: ($bottomleft);
+
+    border-top-left-radius: ($topleft);
+	border-top-right-radius: ($topright);
+	border-bottom-right-radius: ($bottomright);
+	border-bottom-left-radius: ($bottomleft);
+}
+
+
+// media screen
+
+// 4K
+@mixin max-3840 {
+    @media screen and (max-width:3840px) {
+        @content;
+    }
+}
+// 2K
+@mixin max-2560 {
+    @media screen and (max-width:2560px) {
+        @content;
+    }
+}
+// FHD
+@mixin max-1920 {
+    @media screen and (max-width:1920px) {
+        @content;
+    }
+}
+// Desktop
+@mixin max-1366 {
+    @media screen and (max-width:1366px) {
+        @content;
+    }
+}
+@mixin max-1199 {
+    @media screen and (max-width:1199px) {
+        @content;
+    }
+}
+@mixin max-1024 {
+    @media screen and (max-width:1024px) {
+        @content;
+    }
+}
+@mixin max-991 {
+    @media screen and (max-width:991px) {
+        @content;
+    }
+}
+@mixin max-768 {
+    @media screen and (max-width:768px) {
+        @content;
+    }
+}
+@mixin max-767 {
+    @media screen and (max-width:767px) {
+        @content;
+    }
+}
+@mixin max-575 {
+    @media screen and (max-width:575px) {
+        @content;
+    }
+}
+@mixin max-420 {
+    @media screen and (max-width:420px) {
+        @content;
+    }
+}
+@mixin max-360 {
+    @media screen and (max-width:360px) {
+        @content;
+    }
+}
+@mixin max-320 {
+    @media screen and (max-width:320px) {
+        @content;
+    }
+}
+
