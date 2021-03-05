@@ -1,42 +1,46 @@
 import React from "react";
 
 const Header = () => {
+
+
+    const [sidebar, setShow] = React.useState();
+ 
     return (
-        <div>
+        <div onClick={() => setShow(!sidebar)}>
             <header>
                 <div className="header">
                     <div className="header__inner">
                         <div className="header__logo">
-                            <a href="#">cloudexpat</a>
+                            <a href="javascript:;">cloudexpat</a>
                         </div>
                         <div className="header__menu">
                             <div className="header__menu-inner">
                                 <ul>
                                     <li>
-                                        <a href="#">Services</a>
+                                        <a href="#services">Services</a>
                                     </li>
                                     <li>
-                                        <a href="#">Partners</a>
+                                        <a href="#partners">Partners</a>
                                     </li>
                                     <li>
-                                        <a href="#">About Us</a>
+                                        <a href="#about">About Us</a>
                                     </li>
                                 </ul>
                                 <div className="header__menu-btn">
-                                    <a className="btn-outline" href="#">
+                                    <a className="btn-outline" href="#new">
                                         Get in touch
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div className="toggle-menu">
+                        <button className="toggle-menu" onClick={() => setShow(!sidebar)}>
                             <i className="far fa-bars"></i>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </header>
 
-            <div className="sidebar">
+            <div className={sidebar ? "sidebar active" : "sidebar"}>
                 <div className="sidebar__inner">
                     <div className="sidebar__logo">
                         <a href="#">cloudexpat</a>
@@ -63,7 +67,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <div className="close-sidebar"></div>
+            <div className={sidebar ? "close-sidebar active" : "close-sidebar"}></div>
         </div>
     );
 };
